@@ -2,8 +2,8 @@
 ---
 - name: configuration | copy configuration file
   template:
-    src: etc/letsencrypt/cli.ini.j2
-    dest: "/etc/letsencrypt/cli.ini"
+    src: "{{ ubuntu_2004_letsencrypt_configuration_file.lstrip('/') }}.j2"
+    dest: "{{ ubuntu_2004_letsencrypt_configuration_file }}"
 
 - name: configuration | create acme challenges directory
   file:
