@@ -1,0 +1,17 @@
+# tasks file for ubuntu-2004-letsencrypt
+---
+- name: configuration | copy configuration file
+  template:
+    src: "{{ ubuntu_2004_letsencrypt_configuration_file.lstrip('/') }}.j2"
+    dest: "{{ ubuntu_2004_letsencrypt_configuration_file }}"
+
+- name: configuration | create acme challenges directory
+  file:
+    path: "{{ ubuntu_2004_letsencrypt_webroot_path }}/{{ ubuntu_2004_letsencrypt_acme_challenge_path }}"
+    state: directory
+
+- include: configuration-apache.yml
+  when: ubuntu_2004_letsencrypt_webroot_webserver is defined and ubuntu_2004_letsencrypt_webroot_webserver == 'apache'
+
+- include: configuration-nginx.yml
+  when: ubuntu_2004_letsencrypt_webroot_webserver is defined and ubuntu_2004_letsencrypt_webroot_webserver == 'nginx'

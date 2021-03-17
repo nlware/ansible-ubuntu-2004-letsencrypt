@@ -1,0 +1,19 @@
+# {{ ansible_managed }}
+
+location ^~ /{{ ubuntu_2004_letsencrypt_acme_challenge_path }}/ {
+  default_type "text/plain";
+
+  root {{ ubuntu_2004_letsencrypt_webroot_path }};
+
+  try_files $uri @missing;
+}
+
+location @missing {
+  if ($host != '{{ ansible_host }}') {
+    return 302 https://{{ ubuntu_2004_letsencrypt_acme_challenge_forward_host }}$request_uri;
+  }
+}
+
+location = /{{ ubuntu_2004_letsencrypt_acme_challenge_path }}/ {
+  return 404;
+}
