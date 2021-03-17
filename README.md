@@ -1,6 +1,6 @@
 ## ubuntu-2004-letsencrypt
 
-Set up latest Let's Encrypt on Ubuntu 20.04.
+Set up Let's Encrypt on Ubuntu 20.04.
 
 #### Variables
 
