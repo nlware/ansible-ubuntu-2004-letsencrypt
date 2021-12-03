@@ -1,0 +1,9 @@
+# defaults file for ubuntu-2004-letsencrypt
+---
+ubuntu_2004_letsencrypt_authenticator: standalone
+
+ubuntu_2004_letsencrypt_certificates_present: []
+
+ubuntu_2004_letsencrypt_certificates_absent: []
+
+ubuntu_2004_letsencrypt_webroot_path: '/var/lib/certbot/http_challenges'
