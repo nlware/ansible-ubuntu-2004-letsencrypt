@@ -17,4 +17,4 @@
   ansible.builtin.service:
     name: apache2
     state: reloaded
-  when: _copy_alias_configuration_file is changed or _enable_alias_configuration is changed
+  when: _copy_alias_configuration_file is changed or _enable_alias_configuration is changed  # noqa 503
