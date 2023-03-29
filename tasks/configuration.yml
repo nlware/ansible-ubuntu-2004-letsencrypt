@@ -14,8 +14,8 @@
 
 - name: configuration apache
   ansible.builtin.import_tasks: configuration-apache.yml
-  when: ubuntu_2004_letsencrypt_webroot_webserver is defined and ubuntu_2004_letsencrypt_webroot_webserver == 'apache'
+  when: ubuntu_2004_letsencrypt_webroot_webserver is defined and ubuntu_2004_letsencrypt_webroot_webserver == 'apache' #noqa 503
 
 - name: configuration nginx
   ansible.builtin.import_tasks: configuration-nginx.yml
-  when: ubuntu_2004_letsencrypt_webroot_webserver is defined and ubuntu_2004_letsencrypt_webroot_webserver == 'nginx'
+  when: ubuntu_2004_letsencrypt_webroot_webserver is defined and ubuntu_2004_letsencrypt_webroot_webserver == 'nginx' #noqa 503
