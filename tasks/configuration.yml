@@ -1,12 +1,12 @@
 # tasks file for ubuntu-2004-letsencrypt
 ---
 - name: configuration | copy configuration file
-  template:
+  ansible.builtin.template:
     src: "{{ ubuntu_2004_letsencrypt_configuration_file.lstrip('/') }}.j2"
     dest: "{{ ubuntu_2004_letsencrypt_configuration_file }}"
 
 - name: configuration | create acme challenges directory
-  file:
+  ansible.builtin.file:
     path: "{{ ubuntu_2004_letsencrypt_webroot_path }}/{{ ubuntu_2004_letsencrypt_acme_challenge_path }}"
     state: directory
 

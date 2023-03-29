@@ -1,6 +1,6 @@
 # tasks file for ubuntu-2004-letsencrypt
 ---
 - name: configuration-nginx | copy snippet file
-  template:
+  ansible.builtin.template:
     src: "{{ ubuntu_2004_letsencrypt_nginx_snippet_file.lstrip('/') }}.j2"
     dest: "{{ ubuntu_2004_letsencrypt_nginx_snippet_file }}"
