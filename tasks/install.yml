@@ -1,5 +1,5 @@
 # tasks file for ubuntu-2004-letsencrypt
 ---
 - name: install | certbot
-  apt:
+  ansible.builtin.apt:
     name: certbot
