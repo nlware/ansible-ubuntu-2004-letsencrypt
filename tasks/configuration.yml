@@ -1,17 +1,21 @@
 # tasks file for ubuntu-2004-letsencrypt
 ---
 - name: configuration | copy configuration file
-  template:
+  ansible.builtin.template:
     src: "{{ ubuntu_2004_letsencrypt_configuration_file.lstrip('/') }}.j2"
     dest: "{{ ubuntu_2004_letsencrypt_configuration_file }}"
+    mode: '644'
 
 - name: configuration | create acme challenges directory
-  file:
+  ansible.builtin.file:
     path: "{{ ubuntu_2004_letsencrypt_webroot_path }}/{{ ubuntu_2004_letsencrypt_acme_challenge_path }}"
     state: directory
+    mode: '755'
 
-- include: configuration-apache.yml
-  when: ubuntu_2004_letsencrypt_webroot_webserver is defined and ubuntu_2004_letsencrypt_webroot_webserver == 'apache'
+- name: configuration apache
+  ansible.builtin.import_tasks: configuration-apache.yml
+  when: ubuntu_2004_letsencrypt_webroot_webserver is defined and ubuntu_2004_letsencrypt_webroot_webserver == 'apache'  # noqa 503
 
-- include: configuration-nginx.yml
-  when: ubuntu_2004_letsencrypt_webroot_webserver is defined and ubuntu_2004_letsencrypt_webroot_webserver == 'nginx'
+- name: configuration nginx
+  ansible.builtin.import_tasks: configuration-nginx.yml
+  when: ubuntu_2004_letsencrypt_webroot_webserver is defined and ubuntu_2004_letsencrypt_webroot_webserver == 'nginx'  # noqa 503

@@ -1,8 +1,11 @@
 # tasks file for ubuntu-2004-letsencrypt
 ---
 
-- include: install.yml
+- name: install
+  ansible.builtin.import_tasks: install.yml
 
-- include: configuration.yml
+- name: configuration
+  ansible.builtin.import_tasks: configuration.yml
 
-- include: certificates.yml
+- name: certificates
+  ansible.builtin.import_tasks: certificates.yml
