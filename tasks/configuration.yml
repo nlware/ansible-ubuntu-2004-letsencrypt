@@ -10,8 +10,10 @@
     path: "{{ ubuntu_2004_letsencrypt_webroot_path }}/{{ ubuntu_2004_letsencrypt_acme_challenge_path }}"
     state: directory
 
-- include: configuration-apache.yml
+- name: configuration apache
+  ansible.builtin.import_tasks: configuration-apache.yml
   when: ubuntu_2004_letsencrypt_webroot_webserver is defined and ubuntu_2004_letsencrypt_webroot_webserver == 'apache'
 
-- include: configuration-nginx.yml
+- include: configuration nginx
+  ansible.builtin.import_tasks: configuration-nginx.yml
   when: ubuntu_2004_letsencrypt_webroot_webserver is defined and ubuntu_2004_letsencrypt_webroot_webserver == 'nginx'
