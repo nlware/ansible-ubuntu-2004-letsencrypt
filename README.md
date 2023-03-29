@@ -1,5 +1,7 @@
 ## ubuntu-2004-letsencrypt
 
+[![CI](https://github.com/nlware/ansible-ubuntu-2004-letsencrypt/workflows/CI/badge.svg)](https://github.com/nlware/ansible-ubuntu-2004-letsencrypt/actions?query=workflow%3ACI)
+
 Set up Let's Encrypt on Ubuntu 20.04.
 
 #### Variables
