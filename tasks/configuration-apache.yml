@@ -4,6 +4,7 @@
   ansible.builtin.template:
     src: etc/apache2/conf-available/letsencrypt.conf.j2
     dest: "/etc/apache2/conf-available/letsencrypt.conf"
+    mode: '644'
   register: _copy_alias_configuration_file
 
 - name: configuration-apache | enable alias configuration

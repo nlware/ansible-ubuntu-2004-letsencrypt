@@ -4,3 +4,4 @@
   ansible.builtin.template:
     src: "{{ ubuntu_2004_letsencrypt_nginx_snippet_file.lstrip('/') }}.j2"
     dest: "{{ ubuntu_2004_letsencrypt_nginx_snippet_file }}"
+    mode: '644'
