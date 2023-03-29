@@ -4,11 +4,13 @@
   ansible.builtin.template:
     src: "{{ ubuntu_2004_letsencrypt_configuration_file.lstrip('/') }}.j2"
     dest: "{{ ubuntu_2004_letsencrypt_configuration_file }}"
+    mode: '644'
 
 - name: configuration | create acme challenges directory
   ansible.builtin.file:
     path: "{{ ubuntu_2004_letsencrypt_webroot_path }}/{{ ubuntu_2004_letsencrypt_acme_challenge_path }}"
     state: directory
+    mode: '755'
 
 - name: configuration apache
   ansible.builtin.import_tasks: configuration-apache.yml
